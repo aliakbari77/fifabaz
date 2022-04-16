@@ -1,6 +1,7 @@
 import React from "react";
 
-function Table() {
+
+function Table(props) {
 
   // Use this for showing thead
   const fields = [
@@ -17,14 +18,24 @@ function Table() {
   return (
     <table id="players-table" className="table table-bordered">
       <thead>
-        {
-          // Show table's header code
-        }
+        <tr>
+          {fields.map((field, i) => <th key={i}>
+            {field}
+          </th>)}
+        </tr>
       </thead>
       <tbody>
-        {
-          // Show item's row code
-        }
+        {props.players.map((player, i) => <tr key={i}>
+          <td>{i}</td>
+          <td>{player.short_name}</td>
+          <td>{player.age}</td>
+          <td>{player.nationality}</td>
+          <td>{player.club}</td>
+          <td>{player.overall}</td>
+          <td>{player.value}</td>
+          <td>{player.preferred_foot}</td>
+          <td>{player.team_position}</td>
+        </tr>)}
       </tbody>
     </table>
   );

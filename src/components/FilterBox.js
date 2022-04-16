@@ -3,7 +3,7 @@ import nationalityItems from '../data/Nationality'
 import clubItems from '../data/Clubs'
 import teamPositionItems from '../data/TeamPositions'
 
-function FilterBox() {
+function FilterBox(props) {
   const filters = ["nationality", "club", "team_position"];
 
 
@@ -11,7 +11,7 @@ function FilterBox() {
     // Your Code ...
   };
 
-  console.log(nationalityItems);
+
   return (
     <div className="filter-box">
       <div>
@@ -46,8 +46,8 @@ function FilterBox() {
               <div className="card-body">
                 {nationalityItems.map((item, i) =>
                 <div key={i}>
-                  <input id={i} type="checkbox"/>
-                  <label className="form-check-label" htmlFor={i}>
+                  <input id={i} type="checkbox" onClick={props.onChange} value={item}/>
+                  <label className="form-check-label" htmlFor={i} >
                    {item}
                   </label>
                 </div>)}
@@ -78,7 +78,7 @@ function FilterBox() {
               <div className="card-body">
               {clubItems.map((item, i) =>
                 <div key={i}>
-                  <input id={i} type="checkbox"/>
+                  <input id={i} type="checkbox" onClick={props.onChange} value={item}/>
                   <label className="form-check-label" htmlFor={i}>
                    {item}
                   </label>
@@ -110,7 +110,7 @@ function FilterBox() {
               <div className="card-body">
               {teamPositionItems.map((item, i) =>
                 <div key={i}>
-                  <input id={i} type="checkbox"/>
+                  <input id={i} type="checkbox" onClick={props.onChange} value={item}/>
                   <label className="form-check-label" htmlFor={i}>
                    {item}
                   </label>
