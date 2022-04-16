@@ -84,7 +84,7 @@ class App extends Component {
           console.log("f")
           for (let i = 0; i < this.state.filters.length; i++){
             console.log("in fors")
-            filtered = filtered.concat(players.filter(p => (p.nationality || p.club || p.team_position) == this.state.filters[i]))
+            filtered = filtered.concat(players.filter(p =>( p.nationality == this.state.filters[i]) || ( p.club == this.state.filters[i])))
           }
         }
         else {
